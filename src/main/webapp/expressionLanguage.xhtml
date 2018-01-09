@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+	 <ui:composition template="/layout/default-template.xhtml">
+	 	<ui:param name="title" value="Expression Language"></ui:param>
+	 	<ui:define name="content">
+	 		<h:outputText value="#{exampleBean.number}"></h:outputText>
+	 		<h:outputText value="#{exampleBean['number']}"></h:outputText>
+	 		
+	 		<ul>
+	 			<ui:repeat var="number" value="#{exampleBean.numbers}">
+	 				<li><h:outputText value="#{number}"/></li>
+	 			</ui:repeat>
+	 		</ul>
+	 		<h:form>
+	 			<h:inputText value="#{exampleBean.number}"></h:inputText>
+	 			<h:commandButton action="#{exampleBean.doAction}" value="Submit"></h:commandButton>
+	 		</h:form>
+	 		
+	 		<h:outputText value="#{exampleBean.number > 5}"></h:outputText>
+	 		<h:outputText value="#{exampleBean.number ge 5}"></h:outputText>
+	 		<h:outputText value="#{exampleBean.number gt 5 and exampleBean.number lt 20}"></h:outputText>
+	 		<h:outputText value="#{empty exampleBean.numbers}"></h:outputText>
+	 	
+	 	</ui:define>
+	 </ui:composition>
+
+</html>
